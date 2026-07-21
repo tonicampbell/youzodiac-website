@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use — You Zodiac</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   YOU ZODIAC — shared site styles
+   Midnight & Marigold theme, per approved app design tokens
+   ============================================================ */
+
+:root {
+  --bg-top: #2B3260;
+  --bg-mid: #1B1F3B;
+  --bg-deep: #14172E;
+
+  --gold-light: #F8D488;
+  --gold-mid: #E8A33D;
+  --gold-deep: #B87423;
+
+  --ink: #F4EFE2;
+  --ink-dim: #B9BAD4;
+  --navy-on-gold: #1B1F3B;
+
+  --hairline: rgba(244, 239, 226, 0.14);
+
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --max-w: 880px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(120% 70% at 50% 0%, var(--bg-top) 0%, var(--bg-mid) 48%, var(--bg-deep) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+a { color: var(--gold-light); text-decoration: none; }
+a:hover { color: var(--gold-mid); text-decoration: underline; }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* ---------- starfield ---------- */
+.starfield {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.starfield span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  opacity: 0.35;
+  animation: twinkle 5.5s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.75; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .starfield span { animation: none; opacity: 0.35; }
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- layout shell ---------- */
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header.site-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+
+.brand-mark { display: flex; align-items: center; gap: 10px; }
+.brand-mark svg { display: block; }
+.brand-wordmark {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+nav.top-nav { display: flex; gap: 22px; font-size: 0.92rem; }
+nav.top-nav a { color: var(--ink-dim); }
+nav.top-nav a:hover { color: var(--gold-light); }
+
+/* ---------- footer ---------- */
+footer.site-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--hairline);
+  margin-top: 96px;
+  padding: 32px 24px 48px;
+}
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink-dim);
+  font-size: 0.88rem;
+}
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { color: var(--ink-dim); }
+.footer-links a:hover { color: var(--gold-light); }
+
+/* ---------- buttons ---------- */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--navy-on-gold);
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold-mid) 55%, var(--gold-deep) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.45),
+    0 6px 18px rgba(184, 116, 35, 0.28);
+  text-decoration: none;
+}
+.btn-gold:hover { text-decoration: none; filter: brightness(1.04); }
+.btn-gold[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: default;
+  pointer-events: none;
+}
+.btn-gold .sub {
+  font-weight: 400;
+  opacity: 0.85;
+  font-size: 0.82em;
+}
+
+/* ---------- legal page layout ---------- */
+main.legal {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+}
+.legal .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  color: var(--gold-light);
+  margin-bottom: 14px;
+}
+.legal h1 { font-size: clamp(1.9rem, 4vw, 2.5rem); margin: 0 0 8px; }
+.legal .updated { color: var(--ink-dim); font-size: 0.9rem; margin-bottom: 44px; }
+.legal section { margin-bottom: 36px; }
+.legal h2 {
+  font-size: 1.15rem;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+.legal h2 .num {
+  font-family: var(--font-body);
+  color: var(--gold-mid);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.legal p, .legal li { color: var(--ink); }
+.legal p { margin: 0 0 14px; }
+.legal ul { padding-left: 20px; margin: 0 0 14px; }
+.legal li { margin-bottom: 8px; }
+.legal a.inline { text-decoration: underline; }
+.legal-note {
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 18px 20px;
+  background: rgba(244, 239, 226, 0.03);
+  font-size: 0.92rem;
+  color: var(--ink-dim);
+}
+
+@media (max-width: 560px) {
+  nav.top-nav { gap: 14px; font-size: 0.85rem; }
+  header.site-header { padding-top: 22px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="starfield" aria-hidden="true" id="starfield"></div>
+
+<header class="site-header">
+  <div class="brand-mark">
+    <svg width="26" height="26" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="46" cy="62" r="34" fill="url(#gGoldHeaderT)"/>
+      <circle cx="80" cy="42" r="24" fill="none" stroke="#F8D488" stroke-width="3.5"/>
+      <defs>
+        <linearGradient id="gGoldHeaderT" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#F8D488"/>
+          <stop offset="55%" stop-color="#E8A33D"/>
+          <stop offset="100%" stop-color="#B87423"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="brand-wordmark">You Zodiac</span>
+  </div>
+  <nav class="top-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</header>
+
+<main class="legal">
+  <div class="eyebrow">Legal</div>
+  <h1>Terms of Use</h1>
+  <p class="updated">Last updated: 20 July 2026</p>
+
+  <section>
+    <p>
+      These terms govern your use of the You Zodiac app, operated by an Australian sole trader
+      (“we,” “us”). By downloading or using the app, you agree to these terms.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">1.</span> What You Zodiac is</h2>
+    <p>
+      You Zodiac is an astrology and entertainment app. It generates birth charts, daily readings,
+      and compatibility reports based on astrological calculation and interpretation. Astrology is
+      not a science, and readings are provided for entertainment, reflection and self-exploration
+      purposes only.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">2.</span> Not professional advice</h2>
+    <p>
+      Nothing in the app constitutes medical, psychological, legal, financial, or other
+      professional advice. Don't use You Zodiac as a substitute for consulting a qualified
+      professional about health, relationships, finances, or any other significant life decision.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">3.</span> Your account and data</h2>
+    <p>
+      You Zodiac doesn't require you to create an account. Birth details you enter are stored
+      locally on your device, as described in our
+      <a class="inline" href="privacy.html">Privacy Policy</a>. You're responsible for the accuracy
+      of the birth information you enter — inaccurate details will produce inaccurate charts.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">4.</span> Acceptable use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the app for any unlawful purpose</li>
+      <li>Attempt to reverse-engineer, decompile, or extract the app's source code</li>
+      <li>Interfere with or disrupt the app or the services it connects to</li>
+      <li>Use the app to harass, impersonate, or infringe the rights of others</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">5.</span> Subscriptions</h2>
+    <p>
+      Some features may be offered as a paid subscription with a free trial period. Subscriptions
+      are billed and managed through the Apple App Store using your Apple ID payment method, and
+      automatically renew unless cancelled at least 24 hours before the end of the current period.
+      You can manage or cancel a subscription at any time in your device's App Store account
+      settings — we don't have the ability to cancel it on your behalf.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">6.</span> Intellectual property</h2>
+    <p>
+      The You Zodiac name, logo, app design, and written content are owned by us or our licensors.
+      You may use the app for personal, non-commercial purposes. You may not copy, redistribute, or
+      create derivative works from the app or its content without our written permission.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">7.</span> Third-party services</h2>
+    <p>
+      The app relies on third-party services to calculate astrological and geographic data. We
+      aren't responsible for outages, inaccuracies, or changes made by these third-party providers
+      that are outside our control.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">8.</span> Disclaimer of warranties</h2>
+    <p>
+      The app is provided "as is" and "as available," without warranties of any kind, whether
+      express or implied. We don't guarantee the app will be uninterrupted, error-free, or that
+      readings will be accurate or meaningful for your circumstances.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">9.</span> Limitation of liability</h2>
+    <p>
+      To the maximum extent permitted by law, we aren't liable for any indirect, incidental, or
+      consequential damages arising from your use of the app, including decisions made based on
+      readings or interpretations it provides. Nothing in these terms excludes rights that can't be
+      excluded under the Australian Consumer Law.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">10.</span> Changes to these terms</h2>
+    <p>
+      We may update these terms as the app evolves. We'll update the "last updated" date above when
+      we do, and continued use of the app after changes take effect means you accept the updated
+      terms.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">11.</span> Governing law</h2>
+    <p>
+      These terms are governed by the laws of Queensland, Australia, without regard to conflict of
+      law principles.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">12.</span> Contact</h2>
+    <p>
+      Questions about these terms can be sent to
+      <a class="inline" href="mailto:admin@youzodiac.com">admin@youzodiac.com</a>.
+    </p>
+  </section>
+
+  <div class="legal-note">
+    These terms are a general-purpose starting point and not a substitute for tailored legal
+    advice. Before publishing, we recommend having them reviewed by a qualified professional,
+    particularly once subscription billing goes live.
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 You Zodiac. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:admin@youzodiac.com">admin@youzodiac.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var field = document.getElementById('starfield');
+  var count = 9;
+  for (var i = 0; i < count; i++) {
+    var s = document.createElement('span');
+    s.style.top = (Math.random() * 90 + 2) + '%';
+    s.style.left = (Math.random() * 96 + 2) + '%';
+    s.style.animationDelay = (Math.random() * 5) + 's';
+    field.appendChild(s);
+  }
+</script>
+
+</body>
+</html>
