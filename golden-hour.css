@@ -1,0 +1,225 @@
+/* ============================================================
+   YOU ZODIAC — shared site styles
+   Golden Hour visual system
+   Canonical tokens: app repo src/constants/celestialTheme.js
+   ============================================================ */
+
+:root {
+  /* Wash, top → bottom */
+  --wash-honey:   #FBD595;
+  --wash-apricot: #FCE1B0;
+  --wash-peach:   #FDEBCB;
+  --wash-cream:   #FDEFD6;
+
+  /* Panels */
+  --panel:        rgba(253, 244, 229, 0.82);
+  --panel-solid:  #FDF3E4;
+
+  /* Hairlines */
+  --hairline:        rgba(196, 120, 40, 0.22);
+  --hairline-strong: rgba(196, 120, 40, 0.38);
+
+  /* Ochre — glyphs, icons, line-work */
+  --ochre:      #BD7410;
+  --ochre-soft: #D0955A;
+  --ochre-deep: #995D23;
+
+  /* Crimson — one key interaction per page, no more */
+  --crimson: #BB0A18;
+
+  /* Ink */
+  --ink:       #2B1D14;
+  --ink-soft:  #4A3627;
+  --ink-muted: rgba(43, 29, 20, 0.55);
+
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --max-w: 880px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg,
+    var(--wash-honey) 0%,
+    var(--wash-apricot) 34%,
+    var(--wash-peach) 68%,
+    var(--wash-cream) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+a { color: var(--ochre-deep); text-decoration: none; }
+a:hover { color: var(--ochre); text-decoration: underline; }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ochre);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* The single most important interaction on a page */
+a.primary-action { color: var(--crimson); font-weight: 500; }
+a.primary-action:hover { color: var(--crimson); }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.descriptor {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+/* ---------- layout shell ---------- */
+.wrap {
+  position: relative;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+
+.brand-mark { display: flex; align-items: center; gap: 10px; }
+.brand-mark img { display: block; width: 30px; height: 30px; }
+.brand-wordmark {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+nav.top-nav { display: flex; gap: 22px; font-size: 0.92rem; }
+nav.top-nav a { color: var(--ink-soft); }
+nav.top-nav a:hover { color: var(--ochre); }
+
+/* ---------- section labels: small caps + hairline rule ---------- */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  color: var(--ochre-deep);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--hairline);
+}
+
+/* ---------- panels ---------- */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: 28px 32px;
+}
+
+/* ---------- footer ---------- */
+footer.site-footer {
+  border-top: 1px solid var(--hairline);
+  margin-top: 96px;
+  padding: 32px 24px 48px;
+}
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { color: var(--ink-soft); }
+.footer-links a:hover { color: var(--ochre); }
+
+/* ---------- buttons: flat matte, no gradients ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--ochre-deep);
+  background: var(--panel-solid);
+  border: 1px solid var(--hairline-strong);
+  text-decoration: none;
+}
+.btn:hover { text-decoration: none; border-color: var(--ochre); color: var(--ochre); }
+.btn[aria-disabled="true"] { opacity: 0.6; cursor: default; pointer-events: none; }
+
+/* ---------- legal page layout ---------- */
+main.legal {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+}
+.legal h1 { font-size: clamp(1.9rem, 4vw, 2.5rem); margin: 0 0 8px; }
+.legal .updated { color: var(--ink-muted); font-size: 0.9rem; margin-bottom: 44px; }
+.legal section { margin-bottom: 36px; }
+.legal h2 {
+  font-size: 1.15rem;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+.legal h2 .num {
+  font-family: var(--font-body);
+  color: var(--ochre);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.legal p, .legal li { color: var(--ink); }
+.legal p { margin: 0 0 14px; }
+.legal ul { padding-left: 20px; margin: 0 0 14px; }
+.legal li { margin-bottom: 8px; }
+.legal a.inline { text-decoration: underline; }
+.legal-note {
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 18px 20px;
+  background: var(--panel);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 560px) {
+  nav.top-nav { gap: 14px; font-size: 0.85rem; }
+  header.site-header { padding-top: 22px; }
+}
